@@ -1,0 +1,21 @@
+
+
+.carritoIcon{
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+
+
+}
+ion-icon{
+    font-size: 40px;
+    color:  #ff8ba7;
+    padding-top: 6px;
+}
+
+.numero{
+
+    font-size: 30px;
+    color:  #ff8ba7;
+    padding-top: 6px;
+}
