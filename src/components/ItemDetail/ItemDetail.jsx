@@ -40,6 +40,8 @@ const onAddFuncion = (cantidadDelCounter) => {
 */
 
 
+ 
+
 return(
 
     <div className="card"
@@ -51,13 +53,15 @@ return(
         <p class="card-text">{descripcion}</p>
         <b class="card-text">{precio}</b>
         <br></br>
-       
+
+
         {irAlCarrito ? <Link to='/cart' className="btn btn-light" >Ir al carrito</Link> : < ItemCounter stock={cantidad} initial={1}  onAdd={onAddFuncion} />}
 
         </div>
         
     </div>
 )
+
 
 
 }

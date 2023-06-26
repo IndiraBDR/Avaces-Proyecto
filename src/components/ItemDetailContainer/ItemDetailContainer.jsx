@@ -61,12 +61,7 @@ import {getProductoDetalladoFireB  } from "../../services/Firebase/Firebase";
      
   
 
-       
-
-      
-
-       <ItemDetail productoDetallado={productoDetalladoFireB.map(item =>({
-          ...item}))}/>
+       <ItemDetail productoDetallado={productoDetalladoFireB}/>
        
         </>
         
