@@ -7,6 +7,8 @@ const CartProvider = ({children}) =>{
 
   const [lista,setLista]= useState([])
 
+  const [cantidad,setCantidad]= useState(0)
+
   const addProduct = (producto,cantidad)=>{
 
 
@@ -18,7 +20,9 @@ const CartProvider = ({children}) =>{
 
    setLista([...lista,producto])
 
-   console.log(producto);
+   setCantidad(cantidad)
+
+   console.log(lista);
 
    // console.log(producto);
     //console.log(cantidad);
@@ -28,7 +32,7 @@ const CartProvider = ({children}) =>{
 
     return(
 
-    <CartContex.Provider value={{addProduct}}>
+    <CartContex.Provider value={{addProduct,lista,cantidad}}>
         {children}
     </CartContex.Provider>
 

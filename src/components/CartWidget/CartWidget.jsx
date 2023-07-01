@@ -1,15 +1,25 @@
 
 import './CartWidget.css'
+import { CartContex} from "../Cart/CartContex";
+import { useContext } from 'react';
+
+import { Link } from "react-router-dom";
 
 const CartWidget = () => {
+
+    const {lista} = useContext(CartContex)
     return (
         <>
-            <div className='carritoIcon'>
+
+       
+            <div className='carritoIcon' >
                 <p className='numero'>
-                    4
+                    {lista.length}
+
+
                 </p>
 
-                <ion-icon name="cart-outline"></ion-icon>
+                <Link to="/cart"> <ion-icon  name="cart-outline"></ion-icon></Link>
             </div>
 
         </>
