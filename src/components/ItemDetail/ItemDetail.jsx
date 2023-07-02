@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import { ItemCounter } from "../../components/index";
 import './ItemDetail.css'
 import { useState, useContext } from "react";
-import { CartContex} from "../Cart/CartContex";
+import { CartContex} from "../../contex/CartContex";
 
 
 
 export const ItemDetail = ({productoDetallado})=> {
 
-const {nombre, descripcion, precio,imagen,id,cantidad} = productoDetallado;
+const {nombre, descripcion, precio,imagen,id,stock} = productoDetallado;
 
 
 
@@ -55,7 +55,7 @@ return(
         <br></br>
 
 
-        {irAlCarrito ? <Link to='/cart' className="btn btn-light" >Ir al carrito</Link> : < ItemCounter stock={cantidad} initial={1}  onAdd={onAddFuncion} />}
+        {irAlCarrito ? <Link to='/cart' className="btn btn-light" >Ir al carrito</Link> : < ItemCounter stock={stock} initial={1}  onAdd={onAddFuncion} />}
 
         </div>
         

@@ -2,7 +2,7 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { NavBar,ItemListContainer, ItemDetailContainer, Cart } from './components';
-import { CartProvider } from './components/Cart/CartContex';
+import { CartProvider } from './contex/CartContex';
 
 
 // Import the functions you need from the SDKs you need

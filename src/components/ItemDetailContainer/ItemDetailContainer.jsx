@@ -24,7 +24,7 @@ import {getProductoDetalladoFireB  } from "../../services/Firebase/Firebase";
 
       setProductoDetalladoFireB(res)
 
-      console.log(id);
+  //    console.log(id);
 
     })
    }

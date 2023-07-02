@@ -3,7 +3,7 @@ import '../Item/Item.css'
 
 const Item = ({ producto }) => {
 
-  const { nombre, descripcion, precio, imagen, cantidad, onProductClicked } = producto
+  const { nombre, descripcion, precio, imagen, onProductClicked,stock } = producto
 
   /*
 
@@ -27,7 +27,7 @@ const Item = ({ producto }) => {
           <b class="card-title">{nombre}</b>
           <img src={imagen} class="card-img-top" />
           <p class="card-text">${precio}</p>
-          <p class="card-text">stock: {cantidad}</p>
+          <p class="card-text">stock: {stock}</p>
           <button class="btn btn-light" onClick={onProductClicked}>Ver más</button>
         </div>
 

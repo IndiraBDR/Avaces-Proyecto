@@ -1,13 +1,13 @@
 
 import { useContext } from "react";
-import { CartContex } from "./CartContex";
+import { CartContex } from "../../contex/CartContex";
 import Item from "../Item/Item";
 
 
 
 const Cart = () => {
 
-    const { addProduct, lista,cantidad} = useContext(CartContex)
+    const { addProduct, listaDelCarrito,cantidad} = useContext(CartContex)
 
 
     /* 
@@ -22,7 +22,7 @@ const Cart = () => {
 
         console.log(cantidad);
 
-        const precioTotal = lista.reduce((accum,producto)=> accum + (producto.precio*cantidad), 0)
+        const precioTotal = listaDelCarrito.reduce((accum,producto)=> accum + (producto.precio*producto.cantidad), 0)
 
 
     return (
@@ -32,7 +32,7 @@ const Cart = () => {
             <p>CARRITO </p>
 
 
-            {lista.map((productomapeado) => (
+            {listaDelCarrito.map((productomapeado) => (
          
          <Item producto={productomapeado} key={productomapeado.id}/>
 
