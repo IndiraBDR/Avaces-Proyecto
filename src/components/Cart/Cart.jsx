@@ -62,7 +62,7 @@ const Cart = () => {
 
       <button onClick={limpiarListadoDelCarrito }>limpiar carrito</button>
 
-      <Link to={"/ordenindira"}>ir a orden</Link>
+      <Link to={"/ordenindira"}>ir al formulario</Link>
 
         </>
     )

@@ -4,6 +4,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { NavBar,ItemListContainer, ItemDetailContainer, Cart } from './components';
 import { CartProvider } from './contex/CartContex';
 
+import { Checkout } from "./components/Checkout/Checkout";
+
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -70,7 +72,7 @@ function App() {
           <Route path='/category/:catId' element={<ItemListContainer greeting="Bienvenidos a mi pagina"/>} />
           <Route path='/item/:id' element={ <ItemDetailContainer/>}/>
           <Route path='/cart' element={<Cart/>}></Route>
-          <Route path="/ordenindira" element={<FormsDeCompra/>}></Route>
+          <Route path="/ordenindira" element={<Checkout/>}></Route>
 
 
           

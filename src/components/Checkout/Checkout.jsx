@@ -1,15 +1,13 @@
-import { useContext } from "react";
+import { useContext,useState } from "react";
 
 import { FormsDeCompra } from "../Formrs/FormsDeCompra";
+import { CartContex } from "../../contex/CartContex";
 
 import {
     getFirestore,
-    getDocs,
-    collection,
-    where,
-    query,
-    doc,
-    getDoc
+    collection, 
+    getDoc,
+    addDoc
   } from "firebase/firestore";
   
 
@@ -48,6 +46,8 @@ const Checkout = () => {
             ...dataForm,
             [evt.target.name]: evt.target.value
         })
+
+        
 
     }
 

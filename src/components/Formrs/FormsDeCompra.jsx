@@ -5,7 +5,7 @@ const FormsDeCompra = (handleForm, generarOrdenDeCompra, dataForm) => {
     const handleOnSubmit = (e) => {
         e.preventDefault()
        
-          generarOrdenDeCompra()
+        generarOrdenDeCompra()
         
         
       }
