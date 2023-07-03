@@ -7,14 +7,20 @@ import { Link } from "react-router-dom";
 
 const CartWidget = () => {
 
-    const {listaDelCarrito} = useContext(CartContex)
+    const {listaDelCarrito,productosTotal} = useContext(CartContex)
+
+
+    if(productosTotal()=== 0){
+
+       return('') 
+    }
     return (
         <>
 
        
             <div className='carritoIcon' >
                 <p className='numero'>
-                    {listaDelCarrito.length}
+              {productosTotal()}
 
 
                 </p>

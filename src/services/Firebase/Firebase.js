@@ -17,16 +17,13 @@ const getProductsFireB = async (parametro) => {
       collection(db, "productos"),
       where("categoryId", "==", parametro),
       
-      
     );
 
     const snapshot = await getDocs(q);
 
     return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
 
-
   } else {
-
 
     const productosRef = collection(db, "productos");
 
@@ -34,7 +31,6 @@ const getProductsFireB = async (parametro) => {
 
     return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
   }
-
 
 };
 
@@ -53,15 +49,9 @@ const getProductoDetalladoFireB = async (parametro) => {
         
         return { id: snapshot.id, ...snapshot.data() };
 
-      }else{
-        return null
-      }
-  
-      
-  
+      }else{ return null }
   
     } else {
-  
   
       const productosRef = collection(db, "productos");
   
@@ -69,8 +59,6 @@ const getProductoDetalladoFireB = async (parametro) => {
   
       return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
     }
-  
-  
   };
 
 

@@ -8,6 +8,7 @@ import { CartProvider } from './contex/CartContex';
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { FormsDeCompra } from './components/Formrs/FormsDeCompra';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -56,7 +57,7 @@ function App() {
       
       
 
-      
+    
       
   
    <CartProvider>
@@ -69,6 +70,9 @@ function App() {
           <Route path='/category/:catId' element={<ItemListContainer greeting="Bienvenidos a mi pagina"/>} />
           <Route path='/item/:id' element={ <ItemDetailContainer/>}/>
           <Route path='/cart' element={<Cart/>}></Route>
+          <Route path="/ordenindira" element={<FormsDeCompra/>}></Route>
+
+
           
         </Routes>
       </BrowserRouter>
