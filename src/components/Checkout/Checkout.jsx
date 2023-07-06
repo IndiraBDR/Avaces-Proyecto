@@ -1,7 +1,8 @@
 import { useContext,useState } from "react";
+import { Link } from "react-router-dom";
 
-import { FormsDeCompra } from "../Formrs/FormsDeCompra";
 import { CartContex } from "../../contex/CartContex";
+import{FormDeCompra } from "../Formrs/FormDeCompra"
 
 import {
     getFirestore,
@@ -41,22 +42,46 @@ const Checkout = () => {
     }
 
     const handleForm = (evt) => {  
+        
 
         setDataForm({
+
+          
             ...dataForm,
             [evt.target.name]: evt.target.value
+            
+            
         })
 
+        console.log(dataForm);
         
 
     }
 
-
+// 
     return(
 
-        <>
+
         
-        <FormsDeCompra handleForm={handleForm} generarOrdenDeCompra={generarOrden} dataForm={dataForm}/>
+        <>
+
+{
+        ordenId 
+        ? (<div className='text-center m-5'>
+                <h1 >Orden ID: </h1>
+                <p>{ ordenId}</p>
+                <p>Gracias por su compra!!</p>
+                <Link className='btn btn-info fw-semibold text-dark my-5' to='/'>Volver al Inicio</Link>
+          </div>)
+        : (<div className='d-flex flex-column text-center mx-5 px-5 gap-2 w-75'>
+
+         <FormDeCompra handleForm={handleForm} generarOrdenDeCompra={generarOrden} dataForm={dataForm}/>
+            
+          </div>)
+     }
+
+       
+       
         </>
         
         
