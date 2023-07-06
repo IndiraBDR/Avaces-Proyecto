@@ -25,7 +25,7 @@ const FormDeCompra = (handleForm, generarOrdenDeCompra, dataForm) => {
 
 
              
-                   <input onChange={ handleForm} type="text" name='email' value={dataForm.email}   placeholder='Ingrese su email'/>
+                   <input onChange={  handleForm} type="text" name='email' value={dataForm.email}  placeholder='Ingrese su email'/>
 
                    <button className="btn btn-outline-secondary w-50 mt-2" type="submit">Finalizar Compra</button>
             </form>

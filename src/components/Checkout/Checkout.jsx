@@ -7,7 +7,6 @@ import{FormDeCompra } from "../Formrs/FormDeCompra"
 import {
     getFirestore,
     collection, 
-    getDoc,
     addDoc
   } from "firebase/firestore";
   
@@ -23,7 +22,7 @@ const Checkout = () => {
     const generarOrden = () => {
 
         const orden = {}
-        orden.compra = dataForm;
+        orden.comprador = dataForm;
         orden.productos = listaDelCarrito.map (producto=>({id:producto.id, nombre: producto.nombre, precio:producto.precio,cantidad:producto.cantidad }))
         orden.total = precioTotal()
 
@@ -35,13 +34,16 @@ const Checkout = () => {
         .then(resp => { setOrdenId(resp.id)})
         .catch( (err) => console.log(err) )
         .finally( () => { 
-            setDataForm( { nombre: '', telefono: '', email: ''} )  
+            setDataForm( {nombre: '', telefono: '', email: ''} )  
             setTimeout( () => { limpiarListadoDelCarrito() }, 2000)
         }) 
+       
 
     }
 
     const handleForm = (evt) => {  
+
+        console.log(evt);
         
 
         setDataForm({
@@ -50,13 +52,14 @@ const Checkout = () => {
             ...dataForm,
             [evt.target.name]: evt.target.value
             
-            
+           
         })
 
-        console.log(dataForm);
-        
+  
 
     }
+
+    
 
 // 
     return(
