@@ -1,15 +1,15 @@
-import { useContext,useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { CartContex } from "../../contex/CartContex";
-import{FormDeCompra } from "../Formrs/FormDeCompra"
+import { FormDeCompra } from "../Formrs/FormDeCompra"
 
 import {
     getFirestore,
-    collection, 
+    collection,
     addDoc
-  } from "firebase/firestore";
-  
+} from "firebase/firestore";
+
 
 const Checkout = () => {
 
@@ -23,76 +23,75 @@ const Checkout = () => {
 
         const orden = {}
         orden.comprador = dataForm;
-        orden.productos = listaDelCarrito.map (producto=>({id:producto.id, nombre: producto.nombre, precio:producto.precio,cantidad:producto.cantidad }))
+        orden.productos = listaDelCarrito.map(producto => ({ id: producto.id, nombre: producto.nombre, precio: producto.precio, cantidad: producto.cantidad, descripcion: producto.descripcion }))
         orden.total = precioTotal()
+        orden.fecha = new Date()
 
         const dbFirestore = getFirestore()
-        const ordenCollecion = collection (dbFirestore, 'ordenes')
-       
-        
-        addDoc(ordenCollecion , orden)
-        .then(resp => { setOrdenId(resp.id)})
-        .catch( (err) => console.log(err) )
-        .finally( () => { 
-            setDataForm( {nombre: '', telefono: '', email: ''} )  
-            setTimeout( () => { limpiarListadoDelCarrito() }, 2000)
-        }) 
-       
+        const ordenCollecion = collection(dbFirestore, 'ordenes')
+
+
+        addDoc(ordenCollecion, orden)
+            .then(resp => { setOrdenId(resp.id) })
+            .catch((err) => console.log(err))
+            .finally(() => {
+                setDataForm({ nombre: '', telefono: '', email: '' })
+                setTimeout(() => { limpiarListadoDelCarrito() }, 2000)
+            })
+
 
     }
 
-    const handleForm = (evt) => {  
+    const handleForm = (evt) => {
 
-        console.log(evt);
-        
+
 
         setDataForm({
 
-          
+
             ...dataForm,
             [evt.target.name]: evt.target.value
-            
-           
+
+
         })
 
-  
+
 
     }
 
-    
-
-// 
-    return(
 
 
-        
+    // 
+    return (
+
+
+
         <>
 
-{
-        ordenId 
-        ? (<div className='text-center m-5'>
-                <h1 >Orden ID: </h1>
-                <p>{ ordenId}</p>
-                <p>Gracias por su compra!!</p>
-                <Link className='btn btn-info fw-semibold text-dark my-5' to='/'>Volver al Inicio</Link>
-          </div>)
-        : (<div className='d-flex flex-column text-center mx-5 px-5 gap-2 w-75'>
+            {
+                ordenId
+                    ? (<div className='text-center m-5'>
+                        <h1 >Orden ID: </h1>
+                        <p>{ordenId}</p>
+                        <p>Gracias por su compra!!</p>
+                        <Link className='btn btn-info fw-semibold text-dark my-5' to='/'>Volver al Inicio</Link>
+                    </div>)
+                    : (<div className='d-flex flex-column text-center mx-5 px-5 gap-2 w-75'>
 
-         <FormDeCompra handleForm={handleForm} generarOrdenDeCompra={generarOrden} dataForm={dataForm}/>
-            
-          </div>)
-     }
+                        <FormDeCompra handleForm={handleForm} generarOrdenDeCompra={generarOrden} dataForm={dataForm} />
 
-       
-       
+                    </div>)
+            }
+
+
+
         </>
-        
-        
-      //  <CheckoutValidacion generateOrder={generateOrder} handleForm={handleForm} dataForm={dataForm} />
+
+
     )
 
 
 
 };
 
-export {Checkout}
+export { Checkout }

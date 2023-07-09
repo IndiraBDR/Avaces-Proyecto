@@ -52,7 +52,7 @@ export const ItemCounter = ({ stock, initial, onAdd }) =>{
             onClick={() => onAdd(counter)}
 
           >
-            Comprar
+            Agregar al carrito
           </button>
         </>
       );

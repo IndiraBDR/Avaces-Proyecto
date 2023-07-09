@@ -64,6 +64,20 @@ const getProductoDetalladoFireB = async (parametro) => {
 
 
 
+ const getCategoriesFireB = async () => {
+
+  const db = getFirestore();
+
+  const categoriasRef = collection(db, "categorias");
+  
+      const snapshot = await getDocs(categoriasRef);
+  
+      return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  
+};
+
+
+
 /*CODIGO ANTES DE CORRECION DE COERD
 
   const getProductoDetalladoFireB = async (parametro) => {
@@ -98,7 +112,7 @@ const getProductoDetalladoFireB = async (parametro) => {
   */
   
 
-export { getProductsFireB, getProductoDetalladoFireB};
+export { getProductsFireB, getProductoDetalladoFireB, getCategoriesFireB};
 
 
 

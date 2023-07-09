@@ -2,11 +2,10 @@ import CartWidget from '../CartWidget/CartWidget';
 import './navbar.css'
 import logo from '../../assets/img/logoindira.png'
 //import { NavLink } from 'react-bootstrap';
-import { NavLink,useParams,useNavigate} from 'react-router-dom';
+import { NavLink, useParams, useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
-import { getCategories } from '../../services/Categories';
-import{getProductsCatId } from'../../services/Productos'
-import{ItemListContainer} from '../../components/index'
+
+import { getCategoriesFireB } from '../../services/Firebase/Firebase'
 
 
 
@@ -18,30 +17,15 @@ const NavBar = () => {
 
   const [categories, setCategories] = useState([]);
 
-  const navigateLogo= useNavigate();
-  
-/* borrado por LAURA
-  const [listaProductos, setListaProductos] = useState([]);
+  const navigateLogo = useNavigate();
 
-  const{catId} = useParams;
-
-
-
-    useEffect(() => {
-      getProductsCatId (catId)
-        .then((res) => setListaProductos(res))
-        .catch((error) => console.log(error));
-    }
-      , [catId]);
-*/
 
   useEffect(() => {
-    getCategories()
+    getCategoriesFireB()
       .then((res) => setCategories(res))
       .catch((error) => console.log(error));
   }
     , []);
-
 
 
 
@@ -52,7 +36,7 @@ const NavBar = () => {
 
       <nav className="navbar navbar-muted navbar-expand-lg bg-light">
         <div className="container-fluid">
-          <a className="navbar-brand" onClick={()=> navigateLogo(`/`)}>
+          <a className="navbar-brand" onClick={() => navigateLogo(`/`)}>
             {" "}
             <img src={logo} alt="hey" width={30} height={30} />
           </a>
@@ -93,22 +77,22 @@ const NavBar = () => {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Te ayudo
+                  Categorias
                 </a>
                 <ul className="dropdown-menu">
 
-                  
-                  {categories.map((itemcategory) =>(
+
+                  {categories.map((itemcategory) => (
 
                     <li >
-                      <NavLink to=  {`/category/${itemcategory.id}/`} className="dropdown-item">{itemcategory.name}</NavLink>
-                     
+                      <NavLink to={`/category/${itemcategory.nombre}/`} className="dropdown-item">{itemcategory.nombre}</NavLink>
+
                     </li>
 
                   ))}
 
 
-                
+
                 </ul>
               </li>
               <li className="nav-item">

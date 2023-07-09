@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getProducts,getProduct } from "../../services/Productos"
+
 import { ItemDetail } from "../ItemDetail/ItemDetail"
 import { useParams } from "react-router-dom"
 
@@ -12,8 +12,6 @@ import {getProductoDetalladoFireB  } from "../../services/Firebase/Firebase";
   const {id}= useParams();
 
 
-  //NUEVO
-
 
   const[productoDetalladoFireB, setProductoDetalladoFireB]=useState([])
 
@@ -24,34 +22,13 @@ import {getProductoDetalladoFireB  } from "../../services/Firebase/Firebase";
 
       setProductoDetalladoFireB(res)
 
-  //    console.log(id);
 
     })
    }
     , [id]);
 
 
-  //
-
-
-
-
-/*CODIGO  VIEJO
-  const [productoDetallado,setproductoDetallado]= useState()
-
-  useEffect ( ()=> {
-
-    getProduct(id)
-    .then((res)=>setproductoDetallado(res))
-
-    console.log(id);
-   
-    
-
-  },[])
-
-*/
-
+  
 
 
 

@@ -7,7 +7,6 @@ const CartProvider = ({ children }) => {
 
   const [listaDelCarrito, setListaDelCarrito] = useState([])
 
-//  const [cantidad, setCantidad] = useState(0)
 
 
   const addProduct = (producto, cantidad) => {
@@ -26,27 +25,7 @@ const CartProvider = ({ children }) => {
 }
 
 
-/*
 
-  const addProduct = (producto, cantidad) => {
-
-    if (listaDelCarrito.find((x) => x.id === producto.id)) {
-      return console.log("YA AGREGARDP");
-    }
-
-    setListaDelCarrito([...listaDelCarrito, producto])
-
-    setCantidad(cantidad)
-
-    console.log(listaDelCarrito);
-
-    // console.log(producto);
-    //console.log(cantidad);
-
-
-  }
-
- */
 
   const limpiarListadoDelCarrito = () => setListaDelCarrito([]);
 

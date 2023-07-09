@@ -1,0 +1,44 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+.cart-container{
+
+display: flex;
+flex-direction: row;
+text-align: center;
+margin-left: 220px;
+margin-right: auto;
+width: 80%;
+gap: 30px;
+
+
+}
+
+.finalizar-compra{
+
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    background-color: white;
+    border-radius: 5px;
+    width: 20%;
+    height: 210px;
+    padding: 10px;
+    gap: 10px;
+}
+
+.btn{
+
+    border:1px solid #ff8ba7;
+ 
+
+}
+
+
+
+.carrito-vacio{
+
+    text-align:center;
+    padding-top: 150px;
+
+}

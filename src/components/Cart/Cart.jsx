@@ -5,65 +5,71 @@ import Item from "../Item/Item";
 import ItemCart from "../ItemCart/ItemCart";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import './Cart.css'
+
 
 
 
 const Cart = () => {
 
-    const { addProduct, listaDelCarrito,cantidad,limpiarListadoDelCarrito ,precioTotal} = useContext(CartContex);
+
+
+    const { addProduct, listaDelCarrito, cantidad, limpiarListadoDelCarrito, precioTotal } = useContext(CartContex);
 
 
 
-    /* 
-          {lista.map((productomapeado) => (
-         
-         <Item producto={productomapeado} key={productomapeado.id}/>
-
-      
-          
-        ))}
-    */
-
-      
-
-      //  const precioTotal = listaDelCarrito.reduce((accum,producto)=> accum + (producto.precio*producto.cantidad), 0)
+    
 
 
-        if(listaDelCarrito.length === 0){
 
-            return(
+   
 
-                <>
-                <p>El carrito esta vacio</p>
 
-                <Link to='/'>Volver a comprar</Link>
-                </>
-            )
+    if (listaDelCarrito.length === 0) {
 
-        };
+        return (
 
+            <>
+
+            <div className="carrito-vacio">
+                <h3>El carrito esta vacio</h3>
+
+                <Link to='/'className="btn btn-ligth">Volver al catalogo</Link>
+
+                </div>
+            </>
+
+        )
+
+    };
 
     return (
 
 
         <>
-            <p>CARRITO </p>
+
+            <div className="cart-container">
+
+                <div>
+
+                    {listaDelCarrito.map((productomapeado) => (
+
+                        <ItemCart producto={productomapeado} key={productomapeado.id} />
+
+                    ))}
+
+                </div>
+
+                <div className="finalizar-compra">
+                    <div>Total de compra: ${precioTotal()}</div>
+               
+                    <button className="btn" onClick={limpiarListadoDelCarrito}>Vaciar carrito</button>
+                    <Link to='/' className="btn btn-light" >Volver al catalogo</Link>
+                    <Link to='/checkout' className="btn btn-light" >Finalizar compra</Link>
+                </div>
 
 
-            {listaDelCarrito.map((productomapeado) => (
-         
-         <ItemCart producto={productomapeado} key={productomapeado.id}/>
-
-        
-          
-        ))}
-
-      <div>{precioTotal()}</div>
-
-      <button onClick={limpiarListadoDelCarrito }>limpiar carrito</button>
-
-      <Link to={"/ordenindira"}>ir al formulario</Link>
-
+            </div>
         </>
     )
 

@@ -10,17 +10,14 @@ const CartWidget = () => {
     const {listaDelCarrito,productosTotal} = useContext(CartContex)
 
 
-    if(productosTotal()=== 0){
-
-       return('') 
-    }
+    
     return (
         <>
 
        
             <div className='carritoIcon' >
                 <p className='numero'>
-              {productosTotal()}
+              {productosTotal()=== 0 ? " " :productosTotal()}
 
 
                 </p>
