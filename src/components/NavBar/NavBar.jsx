@@ -4,21 +4,12 @@ import logo from '../../assets/img/logoindira.png'
 //import { NavLink } from 'react-bootstrap';
 import { NavLink, useParams, useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
-
 import { getCategoriesFireB } from '../../services/Firebase/Firebase'
-
-
-
-
-
-
 
 const NavBar = () => {
 
   const [categories, setCategories] = useState([]);
-
   const navigateLogo = useNavigate();
-
 
   useEffect(() => {
     getCategoriesFireB()
@@ -28,9 +19,7 @@ const NavBar = () => {
     , []);
 
 
-
   return (
-
 
     <>
 
@@ -80,18 +69,13 @@ const NavBar = () => {
                   Categorias
                 </a>
                 <ul className="dropdown-menu">
-
-
                   {categories.map((itemcategory) => (
-
                     <li >
                       <NavLink to={`/category/${itemcategory.nombre}/`} className="dropdown-item">{itemcategory.nombre}</NavLink>
 
                     </li>
 
                   ))}
-
-
 
                 </ul>
               </li>

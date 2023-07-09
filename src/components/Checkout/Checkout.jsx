@@ -43,28 +43,16 @@ const Checkout = () => {
     }
 
     const handleForm = (evt) => {
-
-
-
         setDataForm({
-
-
             ...dataForm,
             [evt.target.name]: evt.target.value
 
 
         })
 
-
-
     }
 
-
-
-    // 
     return (
-
-
 
         <>
 
@@ -83,14 +71,9 @@ const Checkout = () => {
                     </div>)
             }
 
-
-
         </>
 
-
     )
-
-
 
 };
 
